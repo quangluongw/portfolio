@@ -3,14 +3,8 @@ import BlogItem from "@/components/BlogItem";
 import Sidebar from "@/components/Sidebar";
 import Pagination from "@/components/ui/Pagination";
 import { getBlogs } from "@/services/blog";
-import { Filter } from "@/types/blogPosts";
-import { JSX } from "react";
 
-type Props = {
-  searchParams?: Filter;
-};
-
-const BlogPage = async (props: Props): Promise<JSX.Element> => {
+const BlogPage = async () => {
   // const { searchParams } = props;
   // const { category_name, tag_names, page } = searchParams ?? {};
 

@@ -1,9 +1,5 @@
-
 import BlogItem from "@/components/BlogItem";
-import Sidebar from "@/components/Sidebar";
-import Pagination from "@/components/ui/Pagination";
 import { getBlogs } from "@/services/blog";
-import { Suspense } from "react";
 
 const BlogPage = async () => {
   // const { searchParams } = props;
@@ -21,9 +17,9 @@ const BlogPage = async () => {
         </Suspense> */}
         <BlogItem blogPosts={blogPosts.data} />
       </div>
-      {blogPosts.data.length > 0 && (
+      {/* {blogPosts.data.length > 0 && (
         <Pagination totalPages={blogPosts.totalPages} />
-      )}
+      )} */}
     </section>
   );
 };

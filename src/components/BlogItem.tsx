@@ -18,7 +18,7 @@ const BlogItem = ({ blogPosts }: { blogPosts: BlogPost[] }) => {
       {blogPosts.map((post, index) => (
         <Card
           key={post._id}
-          className="group overflow-hidden border shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer bg-gradient-to-br from-card to-card/90 hover:scale-105 "
+          className="group overflow-hidden border shadow-xl transition-all duration-500 cursor-pointer bg-gradient-to-br from-card to-card/90 hover:scale-105 "
           style={{ animationDelay: `${index * 100}ms` }}
         >
           <div className="relative overflow-hidden">

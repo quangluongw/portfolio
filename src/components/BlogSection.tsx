@@ -26,7 +26,7 @@ const BlogSection = async () => {
             </p>
           </div>
 
-          <BlogItem blogPosts={blogPosts.data} />
+          <BlogItem blogPosts={blogPosts.data} cols={4} />
 
           <Link href="/blog" className="text-center flex justify-center">
             <Button

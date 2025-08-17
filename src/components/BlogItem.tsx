@@ -12,9 +12,9 @@ import {
 } from "./ui/card";
 import Link from "next/link";
 import { Empty } from "antd";
-const BlogItem = ({ blogPosts }: { blogPosts: BlogPost[] }) => {
+const BlogItem = ({ blogPosts,cols }: { blogPosts: BlogPost[],cols:number }) => {
   return blogPosts.length > 0 ? (
-    <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 max-[760px]:w-full ">
+    <div className={`grid md:grid-cols-2 xl:grid-cols-${cols} gap-8 max-[760px]:w-full `}>
       {blogPosts.map((post, index) => (
         <Card
           key={post._id}

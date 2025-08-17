@@ -1,4 +1,4 @@
-import { filter as FilterType } from "@/types/blogPosts";
+import { Filter as FilterType } from "@/types/blogPosts";
 
 export const getBlogs = async ({ filter }: { filter?: FilterType } = {}) => {
   try {

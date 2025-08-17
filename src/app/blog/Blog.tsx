@@ -13,7 +13,7 @@ const Blog = () => {
     page: searchParams.get("page") ?? undefined,
   };
 
-  return <BlogPage filter={filter} />;
+  return <BlogPage searchParams={filter} />;
 };
 
 export default Blog;

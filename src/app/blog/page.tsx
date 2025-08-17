@@ -5,7 +5,13 @@ import { getBlogs } from "@/services/blog";
 import { Filter } from "@/types/blogPosts";
 import { Suspense } from "react";
 
-const BlogPage = async ({ filter }: { filter: Filter }) => {
+const BlogPage = async ({ searchParams }: { searchParams: Filter }) => {
+
+    const filter = {
+      category_name:searchParams?.category_name,
+      tag_names:searchParams?.tag_names,
+      page:searchParams?.page,
+    };
   const blogPosts = await getBlogs({ filter });
 
   return (

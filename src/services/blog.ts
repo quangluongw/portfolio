@@ -9,9 +9,12 @@ export const getBlogs = async ({ filter }: { filter?: FilterType } = {}) => {
     if (filter?.tag_names) queryParams.append("tag_names", filter.tag_names);
     if (filter?.page) queryParams.append("page", filter.page);
 
-    const res = await fetch(` ${process.env.Api}/post?${queryParams}`, {
-      next: { revalidate: 60 },
-    });
+    const res = await fetch(
+      ` https://be-blog-eight.vercel.app/api/post?${queryParams}`,
+      {
+        next: { revalidate: 60 },
+      }
+    );
 
     if (!res.ok) {
       console.log(`Failed to fetch blogs: ${res.status}`);
@@ -27,7 +30,9 @@ export const getBlogs = async ({ filter }: { filter?: FilterType } = {}) => {
 
 export const getBlog = async (slug: string) => {
   try {
-    const res = await fetch(`${process.env.Api}/post/${slug}`);
+    const res = await fetch(
+      `https://be-blog-eight.vercel.app/api/post/${slug}`
+    );
     const blog = await res.json();
     return blog;
   } catch (error) {

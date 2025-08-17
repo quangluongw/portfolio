@@ -18,8 +18,9 @@ export interface BlogPost {
   status: string;
   created_at:string;
 }
-export interface Filter {
+// /types/blogPosts.ts
+export type Filter = {
   category_name?: string | string[];
   tag_names?: string | string[];
   page?: string | string[];
-}
+} & Record<string, string | string[] | undefined>;

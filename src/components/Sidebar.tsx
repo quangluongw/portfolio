@@ -3,6 +3,7 @@ import { getTags } from "@/services/tag";
 import { Filter } from "lucide-react";
 import FilterBlog from "./Filter";
 import { Card, CardHeader, CardTitle } from "./ui/card";
+import { Suspense } from "react";
 
 const Sidebar = async () => {
   const category = await getCategorys();
@@ -17,7 +18,10 @@ const Sidebar = async () => {
             Bộ lọc bài viết
           </CardTitle>
         </CardHeader>
+        <Suspense fallback={<div>Đang tải bộ lọc…</div>}>
+
         <FilterBlog category={category} tag={tag} />
+        </Suspense>
       </Card>
     </div>
   );

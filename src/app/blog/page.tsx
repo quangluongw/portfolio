@@ -2,14 +2,16 @@ import BlogItem from "@/components/BlogItem";
 import Sidebar from "@/components/Sidebar";
 import Pagination from "@/components/ui/Pagination";
 import { getBlogs } from "@/services/blog";
-import { filter } from "@/types/blogPosts";
-
-const BlogPage = async ({ searchParams }: { searchParams: filter }) => {
-  const { category_name, tag_names,page } = searchParams;
+import { Filter } from "@/types/blogPosts";
+type Props = {
+  searchParams?: Filter;
+};
+const BlogPage = async ({ searchParams }: Props) => {
+  const { category_name, tag_names, page } = searchParams??{};
   const filter = {
     category_name,
     tag_names,
-    page
+    page,
   };
   const blogPosts = await getBlogs({ filter });
 
@@ -19,8 +21,9 @@ const BlogPage = async ({ searchParams }: { searchParams: filter }) => {
         <Sidebar />
         <BlogItem blogPosts={blogPosts.data} />
       </div>
-      {blogPosts.data.length>0 &&  <Pagination totalPages={blogPosts.totalPages} />}
-     
+      {blogPosts.data.length > 0 && (
+        <Pagination totalPages={blogPosts.totalPages} />
+      )}
     </section>
   );
 };

@@ -18,7 +18,7 @@ export interface BlogPost {
   status: string;
   created_at:string;
 }
-export interface filter {
+export interface Filter {
   category_name?: string | string[];
   tag_names?: string | string[];
   page?: string | string[];

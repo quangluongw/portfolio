@@ -12,9 +12,11 @@ import {
 } from "./ui/card";
 import Link from "next/link";
 import { Empty } from "antd";
-const BlogItem = ({ blogPosts,cols }: { blogPosts: BlogPost[],cols:number }) => {
+const BlogItem = ({ blogPosts }: { blogPosts: BlogPost[] }) => {
   return blogPosts.length > 0 ? (
-    <div className={`grid md:grid-cols-2 xl:grid-cols-${cols} gap-8 max-[760px]:w-full `}>
+    <div
+      className={`grid sm:grid-cols-2 xl:grid-cols-4 gap-8 max-[760px]:w-full `}
+    >
       {blogPosts.map((post, index) => (
         <Card
           key={post._id}
@@ -30,10 +32,6 @@ const BlogItem = ({ blogPosts,cols }: { blogPosts: BlogPost[],cols:number }) => 
               className="w-full h-44 object-cover group-hover:scale-110 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-            <div className="absolute top-4 right-4 flex items-center gap-1 px-3 py-1 bg-black/50 backdrop-blur-sm text-white text-sm rounded-full">
-              <Eye className="h-3 w-3" />
-              {/* {post.?.toLocaleString()} */}5
-            </div>
           </div>
 
           <CardHeader className="space-y-4">
@@ -48,7 +46,7 @@ const BlogItem = ({ blogPosts,cols }: { blogPosts: BlogPost[],cols:number }) => 
                 </Badge>
               ))}
             </div>
-            <Link href={`/blog/${post.slug}`}>
+            <Link href={`/project/${post.slug}`}>
               <CardTitle className="text-xl leading-tight group-hover:text-primary transition-colors duration-300 line-clamp-2">
                 {post.name}
               </CardTitle>
@@ -67,16 +65,12 @@ const BlogItem = ({ blogPosts,cols }: { blogPosts: BlogPost[],cols:number }) => 
                   {/* {post.date} */}
                   44
                 </div>
-                <div className="flex items-center gap-1">
-                  <Clock className="h-3 w-3" />
-                  {/* {post.readTime} */}5
-                </div>
               </div>
             </div>
 
             <Button
               variant="outline"
-              className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300 rounded-md"
+              className="w-full group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-300 rounded-md hover:bg-white"
             >
               Đọc thêm
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -86,7 +80,7 @@ const BlogItem = ({ blogPosts,cols }: { blogPosts: BlogPost[],cols:number }) => 
       ))}
     </div>
   ) : (
-    <Empty className="flex justify-center items-center w-full "/>
+    <Empty className="flex justify-center items-center w-full " />
   );
 };
 

@@ -11,7 +11,7 @@ const TagList = ({ blog }: { blog: BlogPost }) => {
           {blog.tags.map((tag: Tags) => (
             <Link
               key={tag._id}
-              href={`/blog?tag=${tag._id}`}
+              href={`/project?tag=${tag._id}`}
               className="inline-flex items-center px-3 py-1 rounded-full text-sm transition-colors bg-purple-500/20 text-purple-500 font-medium"
             >
               {tag.name}

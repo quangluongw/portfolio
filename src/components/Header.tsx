@@ -30,9 +30,9 @@ const toggleTheme = () => {
 
   const navItems = [
     { name: "Trang chủ", href: "/" },
-    { name: "Blog", href: "/blog" },
-    { name: "Giới thiệu", href: "/about" },
-    { name: "Liên hệ", href: "/contact" },
+    { name: "Dự án", href: "project" },
+    { name: "Giới thiệu", href: "about" },
+    { name: "Liên hệ", href: "contact" },
   ];
 
   const scrollToSection = (href: string) => {
@@ -55,11 +55,11 @@ const toggleTheme = () => {
         <Image src={logo} alt="Lương Thành Quang" width={50} />
         <nav className="hidden md:flex items-center space-x-10">
           {navItems.map((item) => (
-            <Link href={item.href} key={item.name}>
+            <Link href={`/${item.href}`} key={item.name}>
               <Button
                 variant="ghost"
-                className={`text-muted-foreground hover:text-foreground hover:bg-primary/10 transition-all duration-300 px-4 py-2 rounded-lg text-xl ${
-                  pathSegment === item.href && "text-yellow-500"
+                className={`text-muted-foreground hover:text-yellow-500 hover:bg-white transition-all duration-300 px-4 py-2 rounded-lg text-xl ${
+                  pathSegment == item.href && "text-yellow-500"
                 }`}
               >
                 {item.name}

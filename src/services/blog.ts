@@ -3,11 +3,7 @@ import { Filter as FilterType } from "@/types/blogPosts";
 export const getBlogs = async ({ filter }: { filter?: FilterType } = {}) => {
   try {
     const queryParams = new URLSearchParams();
-
-    if (filter?.category_name)
-      queryParams.append("category_name", filter.category_name);
     if (filter?.tag_names) queryParams.append("tag_names", filter.tag_names);
-    if (filter?.page) queryParams.append("page", filter.page);
 
     const res = await fetch(
       ` https://be-blog-eight.vercel.app/api/post?${queryParams}`,
